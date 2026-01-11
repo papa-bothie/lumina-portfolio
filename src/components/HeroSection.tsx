@@ -1,5 +1,6 @@
 import { ArrowDown, Mail, Github, Linkedin } from 'lucide-react';
 import profilePhoto from '@/assets/profile-photo.jpg';
+import SplineBackground from './SplineBackground';
 
 const HeroSection = () => {
   const scrollToContact = () => {
@@ -21,17 +22,11 @@ const HeroSection = () => {
       id="accueil"
       className="min-h-screen flex items-center justify-center relative overflow-hidden"
     >
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-navy-deep via-background to-background" />
+      {/* Spline 3D Background */}
+      <SplineBackground />
       
-      {/* Subtle grid pattern */}
-      <div 
-        className="absolute inset-0 opacity-5"
-        style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, hsl(var(--primary)) 1px, transparent 0)`,
-          backgroundSize: '40px 40px',
-        }}
-      />
+      {/* Overlay gradient for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/70 via-background/50 to-background z-[1]" />
 
       <div className="section-container relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
