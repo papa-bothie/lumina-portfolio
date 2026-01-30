@@ -10,19 +10,19 @@ const Footer = () => {
           {/* Logo / Name */}
           <div className="flex items-center gap-2">
             <span className="font-serif font-semibold gold-gradient-text">
-              Alexandre Martin
+              Papa Bothie Diop
             </span>
           </div>
 
           {/* Copyright */}
           <p className="text-sm text-muted-foreground flex items-center gap-1">
-            © {currentYear} • Fait avec <Heart className="w-4 h-4 text-primary inline" /> en France
+            © {currentYear} • Fait au Sénégal
           </p>
 
           {/* Social Links */}
           <div className="flex items-center gap-4">
             <a
-              href="https://github.com"
+              href="https://github.com/papa-bothie"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
@@ -31,7 +31,7 @@ const Footer = () => {
               <Github size={18} />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/papa-bothie-diop-0083b9261/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
@@ -40,7 +40,7 @@ const Footer = () => {
               <Linkedin size={18} />
             </a>
             <a
-              href="mailto:contact@alexandremartin.dev"
+              href="papebothie03@gmail.com"
               className="text-muted-foreground hover:text-primary transition-colors"
               aria-label="Email"
             >

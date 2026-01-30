@@ -21,15 +21,15 @@ const ContactSection = () => {
   };
 
   const contactInfo = [
-    { icon: Mail, label: 'Email', value: 'contact@alexandremartin.dev', href: 'mailto:contact@alexandremartin.dev' },
-    { icon: Phone, label: 'Téléphone', value: '+33 6 12 34 56 78', href: 'tel:+33612345678' },
-    { icon: MapPin, label: 'Localisation', value: 'Paris, France', href: '#' },
+    { icon: Mail, label: 'Email', value: 'papebothie03@gmail.com', href: 'mailto:papebothie03@gmail.com' },
+    { icon: Phone, label: 'Téléphone', value: '+221 78 181 17 56', href: 'tel:+221781811756' },
+    { icon: MapPin, label: 'Localisation', value: 'Saint-Louis, Sénégal', href: '#' },
   ];
 
   const socialLinks = [
     { icon: Github, label: 'GitHub', href: 'https://github.com' },
     { icon: Linkedin, label: 'LinkedIn', href: 'https://linkedin.com' },
-    { icon: MessageCircle, label: 'WhatsApp', href: 'https://wa.me/33612345678' },
+    { icon: MessageCircle, label: 'WhatsApp', href: 'https://wa.me/221781811756' },
   ];
 
   return (
@@ -51,8 +51,8 @@ const ContactSection = () => {
               Parlons de votre projet
             </h3>
             <p className="text-muted-foreground mb-8 leading-relaxed">
-              Je suis toujours ouvert aux nouvelles opportunités et collaborations. 
-              Que vous ayez un projet en tête ou simplement envie d'échanger, 
+              Je suis toujours ouvert aux nouvelles opportunités et collaborations.
+              Que vous ayez un projet en tête ou simplement envie d'échanger,
               n'hésitez pas à me contacter.
             </p>
 

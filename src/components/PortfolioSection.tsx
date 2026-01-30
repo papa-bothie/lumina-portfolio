@@ -1,31 +1,40 @@
 import { ExternalLink, Github } from 'lucide-react';
 import project1 from '@/assets/project-1.jpg';
-import project2 from '@/assets/project-2.jpg';
 import project3 from '@/assets/project-3.jpg';
+import projectOrion from '@/assets/project-orion.png';
+import projectScraping from '@/assets/project-scraping.png';
 
 const PortfolioSection = () => {
   const projects = [
     {
-      title: 'Dashboard Analytics',
-      description: 'Plateforme de visualisation de données en temps réel pour entreprises SaaS. Interface intuitive avec graphiques interactifs.',
+      title: 'Projet Orion (Hackathon)',
+      description: 'Une solution mobile et web dédiée à la gestion des interventions de secours. Inclut deux applications mobiles et un tableau de bord web pour le suivi en temps réel.',
+      image: projectOrion,
+      technologies: ['React Native', 'React', 'Node.js', 'Firebase'],
+      liveUrl: '#',
+      githubUrl: 'https://github.com/papa-bothie',
+    },
+    {
+      title: 'Gestion de Location de Voitures',
+      description: 'Application complète pour gérer le parc automobile, les clients et les contrats de location. Interface administrative robuste.',
       image: project1,
-      technologies: ['React', 'TypeScript', 'D3.js', 'Node.js'],
+      technologies: ['Java', 'JPA / Hibernate', 'MySQL', 'Swing'],
       liveUrl: '#',
       githubUrl: '#',
     },
     {
-      title: 'E-Commerce Luxe',
-      description: "Application mobile e-commerce pour une marque de mode premium. Design élégant et expérience utilisateur fluide.",
-      image: project2,
-      technologies: ['React Native', 'GraphQL', 'Stripe', 'Firebase'],
+      title: "Extraction de Données (Projet de Fin de Cycle)",
+      description: "Module Python spécialisé dans l'extraction automatisée d'articles de presse sur les accidents de la route. Utilise des techniques avancées de NLP.",
+      image: projectScraping,
+      technologies: ['Python', 'BeautifulSoup', 'newspaper3k', 'spaCy', 'Regex'],
       liveUrl: '#',
       githubUrl: '#',
     },
     {
-      title: 'Plateforme IA',
-      description: "Solution d'analyse prédictive utilisant le machine learning pour optimiser les processus métier.",
+      title: 'Prédiction Score Crédit',
+      description: "Modèle de Machine Learning pour prédire la solvabilité des clients. Analyse de données bancaires et classification.",
       image: project3,
-      technologies: ['Python', 'TensorFlow', 'FastAPI', 'PostgreSQL'],
+      technologies: ['Python', 'Scikit-learn', 'Pandas', 'Matplotlib'],
       liveUrl: '#',
       githubUrl: '#',
     },
@@ -57,7 +66,7 @@ const PortfolioSection = () => {
                   className="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
-                
+
                 {/* Overlay Links */}
                 <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-background/60">
                   <a
@@ -104,7 +113,7 @@ const PortfolioSection = () => {
 
         <div className="text-center mt-12">
           <a
-            href="https://github.com"
+            href="https://github.com/papa-bothie"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-outline-gold inline-flex items-center gap-2"

@@ -1,5 +1,5 @@
-import { ArrowDown, Mail, Github, Linkedin } from 'lucide-react';
-import profilePhoto from '@/assets/profile-photo.jpg';
+import { ArrowDown, Mail, Github, Linkedin, Phone } from 'lucide-react';
+import profilePhoto from '@/assets/profile-photo.png';
 import SplineBackground from './SplineBackground';
 
 const HeroSection = () => {
@@ -24,7 +24,7 @@ const HeroSection = () => {
     >
       {/* Spline 3D Background */}
       <SplineBackground />
-      
+
       {/* Overlay gradient for text readability */}
       <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/70 via-background/50 to-background z-[1]" />
 
@@ -36,14 +36,14 @@ const HeroSection = () => {
               Bienvenue sur mon portfolio
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 leading-tight">
-              Alexandre <span className="gold-gradient-text">Martin</span>
+              Papa Bothie <span className="gold-gradient-text">DIOP</span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-4 font-light">
-              Développeur Web & Data Analyst
+              Développeur Informatique Junior
             </p>
             <p className="text-muted-foreground max-w-lg mx-auto lg:mx-0 mb-8 leading-relaxed">
-              Passionné par la technologie et l'innovation, je crée des expériences 
-              digitales élégantes et des solutions data-driven qui transforment les idées en réalité.
+              Étudiant passionné en informatique, avec une solide formation en développement web et applications.
+              Motivé par l'innovation technologique et désireux d'appliquer mes compétences dans des projets concrets.
             </p>
 
             {/* CTA Buttons */}
@@ -60,7 +60,7 @@ const HeroSection = () => {
             {/* Social Links */}
             <div className="flex gap-4 justify-center lg:justify-start">
               <a
-                href="https://github.com"
+                href="https://github.com/papa-bothie"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-full bg-muted hover:bg-primary/20 text-muted-foreground hover:text-primary transition-all duration-300"
@@ -68,7 +68,7 @@ const HeroSection = () => {
                 <Github size={20} />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/papa-bothie-diop-0083b9261/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-full bg-muted hover:bg-primary/20 text-muted-foreground hover:text-primary transition-all duration-300"
@@ -76,10 +76,16 @@ const HeroSection = () => {
                 <Linkedin size={20} />
               </a>
               <a
-                href="mailto:contact@example.com"
+                href="mailto:papebothie03@gmail.com"
                 className="p-3 rounded-full bg-muted hover:bg-primary/20 text-muted-foreground hover:text-primary transition-all duration-300"
               >
                 <Mail size={20} />
+              </a>
+              <a
+                href="tel:+221781811756"
+                className="p-3 rounded-full bg-muted hover:bg-primary/20 text-muted-foreground hover:text-primary transition-all duration-300"
+              >
+                <Phone size={20} />
               </a>
             </div>
           </div>
@@ -92,8 +98,8 @@ const HeroSection = () => {
               <div className="avatar-ring">
                 <img
                   src={profilePhoto}
-                  alt="Alexandre Martin"
-                  className="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover"
+                  alt="Papa Bothie DIOP"
+                  className="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover object-top"
                 />
               </div>
             </div>

@@ -1,12 +1,12 @@
 import { MapPin, Briefcase, GraduationCap, Heart } from 'lucide-react';
-import profilePhoto from '@/assets/profile-photo.jpg';
+import profilePhoto from '@/assets/profile-photo.png';
 
 const AboutSection = () => {
   const highlights = [
-    { icon: MapPin, label: 'Basé à', value: 'Paris, France' },
-    { icon: Briefcase, label: 'Expérience', value: '5+ années' },
-    { icon: GraduationCap, label: 'Formation', value: "Master Informatique" },
-    { icon: Heart, label: 'Passion', value: 'Innovation digitale' },
+    { icon: MapPin, label: 'Basé à', value: 'Saint-Louis, Sénégal' },
+    { icon: Briefcase, label: 'Expérience', value: 'Junior' },
+    { icon: GraduationCap, label: 'Formation', value: "Licence Ingénierie Informatique" },
+    { icon: Heart, label: 'Passion', value: 'Innovation & Tech' },
   ];
 
   return (
@@ -29,7 +29,7 @@ const AboutSection = () => {
               <img
                 src={profilePhoto}
                 alt="À propos de moi"
-                className="w-full aspect-[4/5] object-cover"
+                className="w-full aspect-[4/5] object-cover object-top"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
             </div>
@@ -38,24 +38,23 @@ const AboutSection = () => {
           {/* Content */}
           <div className="order-1 lg:order-2">
             <h3 className="text-2xl font-serif font-semibold mb-6">
-              Digital Nomad & Créateur d'expériences digitales
+              Développeur Informatique Junior
             </h3>
-            
+
             <div className="space-y-4 text-muted-foreground leading-relaxed mb-8">
               <p>
-                Passionné par la technologie depuis mon plus jeune âge, j'ai fait de ma passion 
-                mon métier. Développeur web full-stack et data analyst, je combine créativité 
-                et expertise technique pour créer des solutions innovantes.
+                Je suis Papa Bothie Diop, étudiant en Licence 3 Ingénierie Informatique à l'Université Assane Seck de Ziguinchor.
+                Passionné par le développement logiciel et l'analyse de données, je m'efforce de concevoir des solutions technologiques
+                innovantes et performantes.
               </p>
               <p>
-                Mon approche ? Allier design élégant, code propre et données pertinentes pour 
-                construire des produits qui font la différence. Chaque projet est une opportunité 
-                d'apprendre et de repousser mes limites.
+                Autodidacte et curieux, j'aime explorer de nouvelles technologies et relever des défis techniques.
+                Mes centres d'intérêt incluent la technologie, la lecture, le voyage, le sport et l'engagement associatif,
+                qui enrichissent ma vision du monde et mon approche du travail en équipe.
               </p>
               <p>
-                En tant que digital nomad, j'ai eu la chance de travailler avec des équipes 
-                internationales et de m'enrichir de cultures diverses. Cette expérience m'a 
-                appris l'importance de la communication et de l'adaptabilité.
+                Je suis actuellement à la recherche d'opportunités pour mettre en pratique mes compétences
+                en développement full-stack, machine learning et ingénierie logicielle au sein de projets ambitieux.
               </p>
             </div>
 
