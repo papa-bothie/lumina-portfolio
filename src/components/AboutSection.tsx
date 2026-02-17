@@ -1,12 +1,12 @@
-import { MapPin, Briefcase, GraduationCap, Heart } from 'lucide-react';
-import profilePhoto from '@/assets/profile-photo.png';
+import { MapPin, Briefcase, GraduationCap, Heart } from "lucide-react";
+import profilePhoto from "@/assets/profile-photo.png";
 
 const AboutSection = () => {
   const highlights = [
-    { icon: MapPin, label: 'Basé à', value: 'Saint-Louis, Sénégal' },
-    { icon: Briefcase, label: 'Expérience', value: 'Junior' },
-    { icon: GraduationCap, label: 'Formation', value: "Licence Ingénierie Informatique" },
-    { icon: Heart, label: 'Passion', value: 'Innovation & Tech' },
+    { id: "location", icon: MapPin, label: "Basé à", value: "Saint-Louis, Sénégal" },
+    { id: "experience", icon: Briefcase, label: "Expérience", value: "Junior" },
+    { id: "education", icon: GraduationCap, label: "Formation", value: "Licence Ingénierie Informatique" },
+    { id: "passion", icon: Heart, label: "Passion", value: "Innovation & Tech" },
   ];
 
   return (
@@ -60,9 +60,9 @@ const AboutSection = () => {
 
             {/* Highlights Grid */}
             <div className="grid grid-cols-2 gap-4">
-              {highlights.map((item, index) => (
+              {highlights.map((item) => (
                 <div
-                  key={index}
+                  key={item.id}
                   className="card-premium flex items-center gap-3"
                 >
                   <div className="p-2 rounded-lg bg-primary/10">

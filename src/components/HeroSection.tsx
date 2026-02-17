@@ -1,19 +1,20 @@
-import { ArrowDown, Mail, Github, Linkedin, Phone } from 'lucide-react';
-import profilePhoto from '@/assets/profile-photo.png';
-import SplineBackground from './SplineBackground';
+import { ArrowDown, Mail, Github, Linkedin, Phone } from "lucide-react";
+import { ICON_SIZES } from "@/lib/constants";
+import profilePhoto from "@/assets/profile-photo.png";
+import SplineBackground from "./SplineBackground";
 
 const HeroSection = () => {
   const scrollToContact = () => {
-    const element = document.querySelector('#contact');
+    const element = document.querySelector("#contact");
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   const scrollToPortfolio = () => {
-    const element = document.querySelector('#portfolio');
+    const element = document.querySelector("#portfolio");
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -43,7 +44,7 @@ const HeroSection = () => {
             </p>
             <p className="text-muted-foreground max-w-lg mx-auto lg:mx-0 mb-8 leading-relaxed">
               Étudiant passionné en informatique, avec une solide formation en développement web et applications.
-              Motivé par l'innovation technologique et désireux d'appliquer mes compétences dans des projets concrets.
+              Motivé par l&apos;innovation technologique et désireux d&apos;appliquer mes compétences dans des projets concrets.
             </p>
 
             {/* CTA Buttons */}
@@ -64,28 +65,32 @@ const HeroSection = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-full bg-muted hover:bg-primary/20 text-muted-foreground hover:text-primary transition-all duration-300"
+                aria-label="GitHub"
               >
-                <Github size={20} />
+                <Github size={ICON_SIZES.MEDIUM} />
               </a>
               <a
                 href="https://www.linkedin.com/in/papa-bothie-diop-0083b9261/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-full bg-muted hover:bg-primary/20 text-muted-foreground hover:text-primary transition-all duration-300"
+                aria-label="LinkedIn"
               >
-                <Linkedin size={20} />
+                <Linkedin size={ICON_SIZES.MEDIUM} />
               </a>
               <a
                 href="mailto:papebothie03@gmail.com"
                 className="p-3 rounded-full bg-muted hover:bg-primary/20 text-muted-foreground hover:text-primary transition-all duration-300"
+                aria-label="Email"
               >
-                <Mail size={20} />
+                <Mail size={ICON_SIZES.MEDIUM} />
               </a>
               <a
                 href="tel:+221781811756"
                 className="p-3 rounded-full bg-muted hover:bg-primary/20 text-muted-foreground hover:text-primary transition-all duration-300"
+                aria-label="Téléphone"
               >
-                <Phone size={20} />
+                <Phone size={ICON_SIZES.MEDIUM} />
               </a>
             </div>
           </div>
@@ -112,12 +117,12 @@ const HeroSection = () => {
             href="#apropos"
             onClick={(e) => {
               e.preventDefault();
-              document.querySelector('#apropos')?.scrollIntoView({ behavior: 'smooth' });
+              document.querySelector("#apropos")?.scrollIntoView({ behavior: "smooth" });
             }}
             className="flex flex-col items-center text-muted-foreground hover:text-primary transition-colors"
           >
             <span className="text-xs mb-2 tracking-widest uppercase">Découvrir</span>
-            <ArrowDown size={20} />
+            <ArrowDown size={ICON_SIZES.MEDIUM} />
           </a>
         </div>
       </div>
@@ -126,3 +131,4 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+

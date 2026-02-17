@@ -1,0 +1,43 @@
+name: CI - Build & Test
+
+on:
+  push:
+    branches: [ main, master, dev ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+
+    - name: 🔧 Setup Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+
+    - name: 📦 Install dependencies
+      run: npm ci
+
+    - name: 🎨 Check code formatting (Prettier)
+      run: |
+        npx prettier --check "src/**/*.{ts,tsx,css}" || echo "⚠️ Some files need formatting. Run: npm run format"
+
+    - name: 🏗️ Build project
+      run: npm run build
+
+    - name: ✅ Build artifacts check
+      run: |
+        if [ ! -d "dist" ]; then
+          echo "❌ Build failed: dist directory not found"
+          exit 1
+        fi
+        echo "✅ Build successful!"
