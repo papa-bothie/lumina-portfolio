@@ -1,35 +1,97 @@
-import { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, MessageCircle } from 'lucide-react';
+import { useState } from "react";
+import { Mail, Phone, MapPin, Send, Github, Linkedin, MessageCircle, LucideIcon, CheckCircle, AlertCircle } from "lucide-react";
+import { ICON_SIZES } from "@/lib/constants";
+import emailjs from '@emailjs/browser';
+import { EMAIL_CONFIG } from '@/lib/emailConfig';
+
+interface ContactInfo {
+  id: string;
+  icon: LucideIcon;
+  label: string;
+  value: string;
+  href: string;
+}
+
+interface SocialLink {
+  id: string;
+  icon: LucideIcon;
+  label: string;
+  href: string;
+}
+
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [notification, setNotification] = useState<{
+    type: 'success' | 'error' | null;
+    message: string;
+  }>({ type: null, message: '' });
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    alert('Message envoyé ! (Fonctionnalité à configurer)');
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    setIsLoading(true);
+    setNotification({ type: null, message: '' });
+
+    try {
+      // Initialize EmailJS
+      emailjs.init(EMAIL_CONFIG.PUBLIC_KEY);
+
+      // Send email
+      const result = await emailjs.send(
+        EMAIL_CONFIG.SERVICE_ID,
+        EMAIL_CONFIG.TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          to_email: 'papebothie03@gmail.com',
+        }
+      );
+
+      if (result.status === 200) {
+        setNotification({
+          type: 'success',
+          message: '✅ Message envoyé avec succès ! Je vous répondrai dans les plus brefs délais.',
+        });
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      }
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      setNotification({
+        type: 'error',
+        message: '❌ Erreur lors de l\'envoi du message. Veuillez réessayer ou me contacter directement par email.',
+      });
+    } finally {
+      setIsLoading(false);
+      // Auto-hide notification after 5 seconds
+      setTimeout(() => {
+        setNotification({ type: null, message: '' });
+      }, 5000);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const contactInfo = [
-    { icon: Mail, label: 'Email', value: 'papebothie03@gmail.com', href: 'mailto:papebothie03@gmail.com' },
-    { icon: Phone, label: 'Téléphone', value: '+221 78 181 17 56', href: 'tel:+221781811756' },
-    { icon: MapPin, label: 'Localisation', value: 'Saint-Louis, Sénégal', href: '#' },
+  const contactInfo: ContactInfo[] = [
+    { id: "email", icon: Mail, label: "Email", value: "papebothie03@gmail.com", href: "mailto:papebothie03@gmail.com" },
+    { id: "phone", icon: Phone, label: "Téléphone", value: "+221 78 181 17 56", href: "tel:+221781811756" },
+    { id: "location", icon: MapPin, label: "Localisation", value: "Saint-Louis, Sénégal", href: "#" },
   ];
 
-  const socialLinks = [
-    { icon: Github, label: 'GitHub', href: 'https://github.com' },
-    { icon: Linkedin, label: 'LinkedIn', href: 'https://linkedin.com' },
-    { icon: MessageCircle, label: 'WhatsApp', href: 'https://wa.me/221781811756' },
+  const socialLinks: SocialLink[] = [
+    { id: "github", icon: Github, label: "GitHub", href: "https://github.com" },
+    { id: "linkedin", icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com" },
+    { id: "whatsapp", icon: MessageCircle, label: "WhatsApp", href: "https://wa.me/221781811756" },
   ];
 
   return (
@@ -58,9 +120,9 @@ const ContactSection = () => {
 
             {/* Contact Info List */}
             <div className="space-y-4 mb-8">
-              {contactInfo.map((item, index) => (
+              {contactInfo.map((item) => (
                 <a
-                  key={index}
+                  key={item.id}
                   href={item.href}
                   className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border hover:border-primary/30 transition-colors group"
                 >
@@ -75,29 +137,40 @@ const ContactSection = () => {
               ))}
             </div>
 
+
             {/* Social Links */}
             <div>
               <p className="text-sm text-muted-foreground mb-4">Retrouvez-moi sur</p>
               <div className="flex gap-4">
-                {socialLinks.map((link, index) => (
+                {socialLinks.map((link) => (
                   <a
-                    key={index}
+                    key={link.id}
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-3 rounded-full bg-muted hover:bg-primary/20 text-muted-foreground hover:text-primary transition-all duration-300"
                     title={link.label}
                   >
-                    <link.icon size={22} />
+                    <link.icon size={ICON_SIZES.LARGE} />
                   </a>
                 ))}
               </div>
             </div>
           </div>
 
+
           {/* Contact Form */}
           <div className="card-premium">
             <form onSubmit={handleSubmit} className="space-y-6">
+              {notification.message && (
+                <div className={`p-4 rounded-lg flex items-center gap-3 ${notification.type === 'success'
+                    ? 'bg-green-500/10 text-green-500 border border-green-500/20'
+                    : 'bg-red-500/10 text-red-500 border border-red-500/20'
+                  }`}>
+                  {notification.type === 'success' ? <CheckCircle size={20} /> : <AlertCircle size={20} />}
+                  <p className="text-sm font-medium">{notification.message}</p>
+                </div>
+              )}
               <div className="grid sm:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium mb-2">
@@ -163,15 +236,28 @@ const ContactSection = () => {
                 />
               </div>
 
-              <button type="submit" className="btn-gold w-full flex items-center justify-center gap-2">
-                <Send size={18} />
-                Envoyer le message
+              <button
+                type="submit"
+                disabled={isLoading}
+                className="btn-gold w-full flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+              >
+                {isLoading ? (
+                  <>
+                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    Envoi en cours...
+                  </>
+                ) : (
+                  <>
+                    <Send size={ICON_SIZES.SMALL} />
+                    Envoyer le message
+                  </>
+                )}
               </button>
             </form>
           </div>
         </div>
-      </div>
-    </section>
+      </div >
+    </section >
   );
 };
 
