@@ -89,8 +89,8 @@ const ContactSection = () => {
   ];
 
   const socialLinks: SocialLink[] = [
-    { id: "github", icon: Github, label: "GitHub", href: "https://github.com" },
-    { id: "linkedin", icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com" },
+    { id: "github", icon: Github, label: "GitHub", href: "https://github.com/papa-bothie" },
+    { id: "linkedin", icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/pape-diop-1a0b3b1b/" },
     { id: "whatsapp", icon: MessageCircle, label: "WhatsApp", href: "https://wa.me/221781811756" },
   ];
 
@@ -164,8 +164,8 @@ const ContactSection = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               {notification.message && (
                 <div className={`p-4 rounded-lg flex items-center gap-3 ${notification.type === 'success'
-                    ? 'bg-green-500/10 text-green-500 border border-green-500/20'
-                    : 'bg-red-500/10 text-red-500 border border-red-500/20'
+                  ? 'bg-green-500/10 text-green-500 border border-green-500/20'
+                  : 'bg-red-500/10 text-red-500 border border-red-500/20'
                   }`}>
                   {notification.type === 'success' ? <CheckCircle size={20} /> : <AlertCircle size={20} />}
                   <p className="text-sm font-medium">{notification.message}</p>
